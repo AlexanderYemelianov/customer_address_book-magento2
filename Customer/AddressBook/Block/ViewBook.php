@@ -35,7 +35,6 @@ class ViewBook extends Template
     {
         $abbBook = $this->addressBookFactory->create();
         $customerId = $this->session->getId();
-        $data = $abbBook->load($customerId, 'customer_id');
-        return $data->getData() ?? [];
+        return $abbBook->load($customerId, 'customer_id')->getData() ?? [];
     }
 }

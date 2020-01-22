@@ -18,7 +18,7 @@ class View extends \Magento\Framework\App\Action\Action
     /**
      * @var AddressBookFactory
      */
-    private $addressBook;
+    private $addressBookFactory;
 
     /**
      * @var Session
@@ -29,17 +29,17 @@ class View extends \Magento\Framework\App\Action\Action
      * View constructor.
      * @param Context $context
      * @param PageFactory $resultPageFactory
-     * @param AddressBookFactory $addressBook
+     * @param AddressBookFactory $addressBookFactory
      * @param Session $session
      */
     public function __construct(
         Context $context,
         PageFactory $resultPageFactory,
-        AddressBookFactory $addressBook,
+        AddressBookFactory $addressBookFactory,
         Session $session
     ) {
         $this->resultPageFactory = $resultPageFactory;
-        $this->addressBook = $addressBook;
+        $this->addressBookFactory = $addressBookFactory;
         $this->session = $session;
         parent::__construct($context);
     }
@@ -52,6 +52,14 @@ class View extends \Magento\Framework\App\Action\Action
         if (!$this->session->isLoggedIn()) {
             $resultRedirect = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
             $resultRedirect->setUrl('/customer/account/login');
+            return $resultRedirect;
+        }
+        $abbBook = $this->addressBookFactory->create();
+        $customerId = $this->session->getId();
+        $data = $abbBook->load($customerId, 'customer_id')->getData();
+        if(empty($data)){
+            $resultRedirect = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
+            $resultRedirect->setUrl('/book/page/addbook');
             return $resultRedirect;
         }
         $resultPage = $this->resultPageFactory->create();
