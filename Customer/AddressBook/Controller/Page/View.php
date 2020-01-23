@@ -2,8 +2,9 @@
 
 namespace Customer\AddressBook\Controller\Page;
 
-
+//new line?
 use Customer\AddressBook\Model\AddressBookFactory;
+//redudant \ before Class name
 use \Magento\Framework\App\Action\Context;
 use Magento\Framework\Controller\ResultFactory;
 use \Magento\Framework\View\Result\PageFactory;
@@ -15,6 +16,7 @@ class View extends \Magento\Framework\App\Action\Action
      * @var PageFactory
      */
     private $resultPageFactory;
+    
     /**
      * @var AddressBookFactory
      */
@@ -51,17 +53,21 @@ class View extends \Magento\Framework\App\Action\Action
     {
         if (!$this->session->isLoggedIn()) {
             $resultRedirect = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
+            //Please use UrlBuilder
             $resultRedirect->setUrl('/customer/account/login');
             return $resultRedirect;
         }
         $abbBook = $this->addressBookFactory->create();
         $customerId = $this->session->getId();
         $data = $abbBook->load($customerId, 'customer_id')->getData();
+        
         if(empty($data)){
             $resultRedirect = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
+            //Please use UrlBuilder
             $resultRedirect->setUrl('/book/page/addbook');
             return $resultRedirect;
         }
+        
         $resultPage = $this->resultPageFactory->create();
         $resultPage->getConfig()->getTitle()->prepend(__('Customer: Address book '));
         $this->_view->loadLayout();
