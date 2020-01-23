@@ -59,6 +59,7 @@ class View extends \Magento\Framework\App\Action\Action
         }
         $abbBook = $this->addressBookFactory->create();
         $customerId = $this->session->getId();
+        //Load is a heavy operation. Please use a collection.
         $data = $abbBook->load($customerId, 'customer_id')->getData();
         
         if(empty($data)){
