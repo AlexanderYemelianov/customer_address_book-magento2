@@ -8,7 +8,7 @@ use Magento\Framework\Model\ResourceModel\Db\AbstractDb;
 
 class AddressBook extends AbstractDb
 {
-    //Comment?
+    //Why we a re using constructor here?
     public function __construct(
         \Magento\Framework\Model\ResourceModel\Db\Context $context
         // new line?
