@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Customer\AddressBook\Block;
-
 
 use Magento\Customer\Model\Session;
 use Magento\Framework\App\ObjectManager;
@@ -31,6 +29,7 @@ class AddedBook extends Template
      */
     public function __construct(Template\Context $context, FormKey $formKey, Session $session)
     {
+        //Using of the ObjectManger is a bad practice. Why we are using it here?
         $this->formKey = $formKey ?: ObjectManager::getInstance()->get(
             FormKey::class
         );
