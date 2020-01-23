@@ -4,9 +4,12 @@
  */
 
 ?>
+//Pleas use $block->escapeUrl($block->getFormAction())
 <form action="<?= $block->getFormAction() ?>" method="post">
 
+    //Please use __('First name') for hardcoded text. This is required for the translation
     <label for="">First name</label>
+    //You can use    $block->getBlockHtml('formkey')
     <input type="hidden" name="form_key" value="<?= $block->getFormKey() ?>" >
     <input name="first_name" type="text">
     <label for="">Last name</label>
