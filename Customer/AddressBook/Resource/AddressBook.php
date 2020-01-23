@@ -1,15 +1,17 @@
 <?php
 
-
+// new line?
 namespace Customer\AddressBook\Resource;
 
-
+// new line?
 use Magento\Framework\Model\ResourceModel\Db\AbstractDb;
 
 class AddressBook extends AbstractDb
 {
+    //Comment?
     public function __construct(
         \Magento\Framework\Model\ResourceModel\Db\Context $context
+        // new line?
     )
     {
         parent::__construct($context);
