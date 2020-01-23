@@ -9,6 +9,7 @@ class AddressBook extends AbstractModel implements IdentityInterface
 {
     const  CACHE_TAG = 'add_book';
 
+    //Comment?
     protected function _construct() {
         $this->_init('Customer\AddressBook\Resource\AddressBook');
     }
@@ -20,11 +21,13 @@ class AddressBook extends AbstractModel implements IdentityInterface
     {
         return [self::CACHE_TAG . '_' . $this->getId()];
     }
-
+    
     public function getDefaultValues()
     {
+        //Redudant string return [];
         $values = [];
 
         return $values;
     }
 }
+//there must be an empty string.
