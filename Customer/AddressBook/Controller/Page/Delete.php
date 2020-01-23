@@ -1,9 +1,9 @@
 <?php
 
-
+//redudant new line
 namespace Customer\AddressBook\Controller\Page;
 
-
+//redudant new line
 use Customer\AddressBook\Model\AddressBookFactory;
 use Magento\Customer\Model\Session;
 use Magento\Framework\App\Action\Action;
@@ -22,7 +22,7 @@ class Delete extends Action
      * @var AddressBookFactory
      */
     private $addressBookFactory;
-
+    // add coment. Please use new line for each argument.
     public function __construct(Context $context, AddressBookFactory $addressBookFactory, Session $session)
     {
         $this->addressBookFactory = $addressBookFactory;
@@ -44,3 +44,4 @@ class Delete extends Action
         return $resultRedirect;
     }
 }
+//add new line
