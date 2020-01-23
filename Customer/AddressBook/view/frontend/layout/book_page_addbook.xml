@@ -2,6 +2,7 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="content">
+<!--        Please use a uniqe BLock name  in both layouts    -->
             <block class="Customer\AddressBook\Block\AddedBook" name="testBlock" template="Customer_AddressBook::add_address_book_views.phtml" cacheable="false" />
         </referenceContainer>
     </body>
