@@ -1,16 +1,16 @@
 <?php
 
-
+    //new line?
 namespace Customer\AddressBook\Setup;
 
-
+    //new line?
 use Magento\Framework\Setup\InstallDataInterface;
 use Magento\Framework\Setup\ModuleContextInterface;
 use Magento\Framework\Setup\ModuleDataSetupInterface;
 
 class InstallData implements InstallDataInterface
 {
-
+    //new line?
     /**
      * Installs data for a module
      *
@@ -25,6 +25,7 @@ class InstallData implements InstallDataInterface
                 'first_name' => 'test',
                 'last_name' => 'test',
                 'phone_number' => '0983808141',
+                //Using customer ID is danger.
                 'customer_id' => 1
             ]
         ];
@@ -35,3 +36,4 @@ class InstallData implements InstallDataInterface
         }
     }
 }
+    //new line
