@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Customer\AddressBook\Block;
-
 
 use Customer\AddressBook\Model\AddressBookFactory;
 use Magento\Customer\Model\Session;
@@ -19,6 +17,7 @@ class ViewBook extends Template
      */
     private $session;
 
+    //you have to know what to do with this 
     public function __construct(Template\Context $context,
                                 AddressBookFactory $addressBookFactory,
                                 Session $session)
@@ -35,6 +34,7 @@ class ViewBook extends Template
     {
         $abbBook = $this->addressBookFactory->create();
         $customerId = $this->session->getId();
+        //Please use Collection
         return $abbBook->load($customerId, 'customer_id')->getData() ?? [];
     }
 }
